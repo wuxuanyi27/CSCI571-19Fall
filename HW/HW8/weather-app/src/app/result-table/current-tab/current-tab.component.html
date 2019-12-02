@@ -1,0 +1,68 @@
+<!--<p>current-tab works!</p>-->
+<!--<p>{{timezone}}</p>
+<p>{{summary}}</p>
+<p>{{form.cityget}}</p>
+<p>{{form.stateget}}</p>
+<p>{{humidity}}</p>
+<p>{{pressure}}</p>
+<p>{{windSpeed}}</p>-->
+
+<div id="weather-box" class="container col-sm-9 col-12 col-form-label">
+    <label class="row-1 row-from-label"></label>
+    <div class="row">
+        <div class="col-7 col-form-label">
+            <div id='city'>{{form.cityget}}</div>
+            <div id='time_zone'>{{crrnt.timezone}}</div>
+            <div id='temperature'>{{crrnt.temperature}}<span id='t_icon0'><img
+                        src='https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png'
+                        height="15px" width="15px"></span><span id='F-sign0'>F</span></div>
+            <div id='summary'>{{crrnt.summary}}</div>
+        </div>
+        <div id='seal_img' class="col-4 col-form-label"><img src="{{form.stateSeal}}">
+        </div>
+    </div>
+    <div id="some_details">
+        <table id = 'detail_table' width= "100%">
+            <tr>
+                <td *ngIf="crrnt.humidity!=0"><img
+                        src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png' tooltip title="Humidity"
+                        width="30px"></td>
+                <td *ngIf="crrnt.pressure!=0"><img
+                        src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png' tooltip title="Pressure"
+                        width="30px"></td>
+                <td *ngIf="crrnt.windSpeed!=0"><img
+                        src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png' tooltip title="WindSpeed"
+                        width="30px"></td>
+                <td *ngIf="crrnt.visibility!=0"><img
+                        src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png' tooltip title="Visibility"
+                        width="30px"></td>
+                <td *ngIf="crrnt.cloudCover!=0"><img
+                        src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png' tooltip title="CloudCover" 
+                        width="30px"></td>
+                <td *ngIf="crrnt.ozone!=0"><img
+                        src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png' tooltip title="Ozone"
+                        width="30px"></td>
+            </tr>
+            <tr>
+                <td *ngIf="crrnt.humidity!=0">
+                    <div class='contexts'>{{crrnt.humidity}}</div>
+                </td>
+                <td *ngIf="crrnt.pressure!=0">
+                    <div class='contexts'>{{crrnt.pressure}}</div>
+                </td>
+                <td *ngIf="crrnt.windSpeed!=0">
+                    <div class='contexts'>{{crrnt.windSpeed}}</div>
+                </td>
+                <td *ngIf="crrnt.visibility!=0">
+                    <div class='contexts'>{{crrnt.visibility}}</div>
+                </td>
+                <td *ngIf="crrnt.cloudCover!=0">
+                    <div class='contexts'>{{crrnt.cloudCover}}</div>
+                </td>
+                <td *ngIf="crrnt.ozone!=0">
+                    <div class='contexts'>{{crrnt.ozone}}</div>
+                </td>
+            </tr>
+        </table>
+   </div>
+</div>

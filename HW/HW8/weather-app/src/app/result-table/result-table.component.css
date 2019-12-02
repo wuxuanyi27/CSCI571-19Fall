@@ -1,0 +1,28 @@
+#nav-tabs{
+    color: black;
+}
+
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#icon{
+    color: orange;
+}
+#nav-tabs a{
+    color: black;
+}
+
+@media (max-width: 768px){
+    #nav-tabs a{
+        color: black;
+        font-size: 12px;
+    }
+    button {
+        background-color: white;
+    }
+}

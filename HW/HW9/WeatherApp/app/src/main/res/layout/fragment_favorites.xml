@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".Favorites">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/colorPurple"
+        android:clickable="true"
+        android:src="@drawable/map_marker_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="12dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="396dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/overall_info"
+            android:layout_width="382dp"
+            android:layout_height="197dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/tem_icon"
+                    android:layout_width="132dp"
+                    android:layout_height="104dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/weather_partly_cloudy_night"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tem_summary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.29" />
+
+                <TextView
+                    android:id="@+id/temperature"
+                    android:layout_width="124dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="36dp"
+                    android:text="59℉"
+                    android:textColor="@android:color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.701"
+                    app:layout_constraintStart_toStartOf="@+id/tem_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tem_summary"
+                    android:layout_width="125dp"
+                    android:layout_height="23dp"
+                    android:layout_marginTop="44dp"
+                    android:text="Partialy Cloudy"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.734"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/temperature" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="216dp"
+                    android:layout_height="35dp"
+                    android:text=" Los Angeles, CA, USA"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tem_summary"
+                    app:layout_constraintVertical_bias="0.881" />
+
+                <ImageView
+                    android:id="@+id/info_outline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/information_outline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="208dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="221dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="402dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/table_info"
+            android:layout_width="387dp"
+            android:layout_height="140dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/humidity"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/humidity" />
+
+            <ImageView
+                android:id="@+id/wind"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/wind" />
+
+            <ImageView
+                android:id="@+id/visibility"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/visibility" />
+
+            <ImageView
+                android:id="@+id/pressure"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="295dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/pressure" />
+
+            <TextView
+                android:id="@+id/hum_num"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="85dp"
+                android:text="87%"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/wind_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="85dp"
+                android:text="3.43 mph"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/vis_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="195dp"
+                android:layout_marginTop="85dp"
+                android:text="4.16 km"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/pre_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="277dp"
+                android:layout_marginTop="85dp"
+                android:text="1022.80 mb"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="110dp"
+                android:text="Humidity"
+                android:textAlignment="center"
+                android:textColor="#8B8B8B"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/win"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="95dp"
+                android:layout_marginTop="110dp"
+                android:text="Wind Speed"
+                android:textAlignment="center"
+                android:textColor="#8B8B8B"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/vis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="110dp"
+                android:text="Visibility"
+                android:textAlignment="center"
+                android:textColor="#8B8B8B"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="295dp"
+                android:layout_marginTop="110dp"
+                android:text="Pressure"
+                android:textAlignment="center"
+                android:textColor="#8B8B8B"
+                android:textSize="16sp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/week_card"
+            android:layout_width="380dp"
+            android:layout_height="270dp"
+            android:background="#1E1E1E"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5">
+
+            <ScrollView
+                android:id="@+id/week_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#1E1E1E">
+
+                <com.example.weatherapp.MyListView
+                    android:id="@+id/week_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#1E1E1E"
+                    android:divider="#363740"
+                    android:dividerHeight="3dp" />
+            </ScrollView>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

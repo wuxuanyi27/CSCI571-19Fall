@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="search">Search</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="today">TODAY</string>
+    <string name="weekly">WEEKLY</string>
+    <string name="photos">PHOTOS</string>
+    <string name="PrsText">Pressure</string>
+    <string name="Prs_value">1001.60 mb</string>
+    <string name="PrcpText">Precipitation</string>
+    <string name="Prcp_value">0.00 mmph</string>
+    <string name="TText">Temperature</string>
+    <string name="T_value">70℉</string>
+    <string name="HText">Humidity</string>
+    <string name="H_value">42%</string>
+    <string name="VText">Visibility</string>
+    <string name="V_value">6.30 km</string>
+    <string name="CCText">Cloud Cover</string>
+    <string name="CC_value">3%</string>
+    <string name="OText">Ozone</string>
+    <string name="O_value">318.60 DU</string>
+    <string name="WSText">Wind Speed</string>
+    <string name="WS_value">18.23 mph</string>
+    <string name="twitter">twitter</string>
+    <string name="sumText">No precipitation throughout the week</string>
+</resources>

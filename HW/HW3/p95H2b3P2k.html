@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
+    <title>CSCI 571 - HW3</title>
+    <style>
+    	body {
+    		margin: 0;
+    		overflow-x: hidden;
+            overflow-y: auto;
+            /*transform-style: preserve-3d;*/
+    	}
+        .parallax {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .parallax__layer {
+            position: absolute;
+        }
+        .parallax__layer--base {
+                transform: translateZ(0);
+        }
+        .parallax__layer--back {
+            transform: scale(1.5) translateZ(-0.5px);
+        }
+        /*.paralalx_layer--bback {
+            transform: scale(2) translateZ(1px);
+        }*/
+
+        /* 滚动容器 */
+        .parallax-viewport {
+            /* 创建3D透视 */
+            perspective: 1px;
+            /*-webkit-perspective: 1px;*/
+            /* 透视消失点坐标 */
+            perspective-origin: right top;
+            /* 元素的内容以正常的方式滚动 */
+            overflow-x: hidden;
+            overflow-y: auto;
+            /*position: relative;*/
+        }
+        /* 保护子元素的3D效果 */
+        .preserve-3d {
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        /* 滚动比较慢的背景元素 */
+        .background {
+            transform-origin: right top 0px;
+            z-index: -1;
+            transform: scale(2) translateZ(-1px);
+        }
+        #bg1 {
+            background-image: url("http://csci571.com/hw/hw3/images/coffee2.jpg");
+            height: 552px;
+            width: 760px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: -1;
+            /*background-attachment: fixed;*/
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: 1240px;
+            background-position: -260px -15px;
+            overflow-x: hidden;
+        }
+        #bg2{
+            background: url("http://csci571.com/hw/hw3/images/coffee1.jpg");
+            height: 700px;
+            width: 760px;
+            z-index: -1;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            top: 900px;
+            /*background-attachment: fixed;*/
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: 1240px;
+            background-position: -260px 0px;
+            overflow-x: hidden;
+        }
+
+    	.navbar{
+            z-index: 100;
+    		background-color: #ffffff;
+    		overflow: hidden;
+    		position: fixed;
+    		left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+    		top: 0;
+    		width: 740px;
+    		padding-top: 15px;
+            padding-bottom: 10px;
+            padding-right: 20px;
+            /*border: 1px solid #4CAF50;*/
+    	}
+    	.navbar a{
+    		/*border-right: 10%;
+            */
+    		float: right;
+    		overflow: auto;
+    		color: #A3A09F;
+    		/*padding: 0.5%;*/
+    		text-decoration: none;
+    		font-size: 12px;
+    		font-family: Raleway;
+    		margin-top: 6px;
+            margin-right: 15px;
+            font-weight: 100;
+    	}
+    	#migibell{
+    		font-size: 18px;
+            margin-left: 100px;
+    		color: #48267C;
+    		font-family: Libre Baskerville;
+            font-weight: 100;
+            /*font-family: Raleway;*/
+            /*border: 1px solid #4CAF50;*/
+    	}
+        .navbar div{
+            margin-top: 15px;
+            margin-bottom: 5px;
+            /*border: 1px solid #4CAF50;*/
+        }
+    	/*.rightborder{
+    		padding-right: 10%;
+    	}*/
+    	.div1{
+    		/*background: url('coffee2.jpg') -220px -20px;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 160% 110%;
+            background-repeat: no-repeat;*/
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            height: 620px;
+            width: 760px;
+            border-top: 0.01px solid #ffffff;
+            /*transform-origin: right top 0px;
+            transform: scale(0.5) translateZ(0.5px);*/
+
+            /*background-color: black;*/
+            /*border: 1px solid #4CAF50;*/
+    	}
+
+    	.intro{
+            z-index: 0;
+            padding-left: 30px;
+            padding-top: 30px;
+            padding-bottom: 60px;
+            padding-right: 30px;
+    		background-color:#ffffff;
+    		height: 130px;
+    		width: 320px;
+            margin-left: 190px;
+            margin-top: 230px;
+            margin-bottom: 70px;
+            color: #48267C;
+            overflow: hidden;	
+            /*align-self: center;
+            position: relative;*/
+            /*border: 1px solid #4CAF50;*/
+    	}
+        .intro img{
+            height: 160px;
+            width: 120px;
+            margin-top: 0px;
+            object-fit: cover;
+            float: left;
+        }
+        .intro i{
+            padding-left: 20px;
+            font-size: 12px;
+            font-weight: 100;
+        }
+        /*.intro div{
+            border: 1px solid #4CAF50;
+        }*/
+        .intro #food{
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            font-size: 28px;
+            padding-left: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        .intro hr{
+            margin-left: 20px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            font-family: arial;
+            align-self: left;
+            width: 55px;
+            color: #48267C;
+            background-color: #48267C;
+            height: 1.5px;
+        }
+        .intro a{
+            padding-left: 20px;
+            font-family: Raleway;
+            font-size: 14px;
+        }
+
+        .intro b{
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            font-size: 34px;
+            padding-left: 20px;
+            margin-top: 0px;
+        }
+
+        .div2 {
+            /*background: url('coffee1.jpg') -220px -20px;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: 160% 110%;*/
+            height: 860px;
+            width: 760px;
+            top: 583.2px;
+            left: 0;
+            right: 0;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            background-repeat: no-repeat;
+            /*transform-origin: right top 0px;
+            transform: scale(0.5) translateZ(0.5px);*/
+        }
+
+        .column{
+            float: left;
+            width: 203.3px;
+            height: 160px;
+            color: white;
+            margin-top: 0;
+            padding-left: 50px;
+            padding-top: 200px;
+            padding-bottom: 50px;
+        }
+
+        .column b{
+            font-family: arial;
+        }
+
+        .row:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media screen and (max-width:600px) {
+        .column {
+            width: 100%;
+            }
+        }
+        #projects{
+            background-color: #5398B8;
+        }
+        #editorial{
+            background-color: #482A7A;
+        }
+        #innovative{
+            background-color: #996CC0;
+        }
+
+        .div3{
+            background-color: #48267C;
+            padding-left: 80px;
+            padding-top: 30px;
+            height: 315px;
+            width: 680px;
+            top: 1300px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            /*transform-origin: right top 0px;
+            transform: scale(0.5) translateZ(0.5px);*/
+        }
+        .div3 h6{
+            color: white;
+            margin-top: 30px;
+            font-family: Raleway;
+            font-weight: 800;
+        }
+        .div3 p{
+            padding-top: 0px;
+            font-size: 30px;
+            font-family: Raleway;
+            color: white;
+        }
+
+        .div4{
+            background: white;
+            height: 300px;
+            width: 660px;
+            padding-top: 70px;
+            padding-left: 100px;
+            color: #482A7A;
+            top: 1640px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            /*transform-origin: right top 0px;
+            transform: scale(0.5) translateZ(0.5px);*/
+        }
+        .div4 h6{
+            font-family: Raleway;
+            font-weight: 800;
+        }
+        .div4 .contactinfo{
+            padding-left: 10px;
+            width: 280px;
+            height: 200px;
+            float: left;
+            /*border: 1px solid #4CAF50;*/
+        }
+        .div4 .contactinfo p{
+            color: #482A80;
+            font-size: 10px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            /*border: 1px solid #4CAF50;*/
+        }
+        .div4 .contactinfo #contme{
+            font-size: 28px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+        }
+        .div4 .textbox{
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            float: right;
+            /*border: 1px solid red;*/
+            width: 310px;
+            margin-right: 50px;
+        }
+        .div4 input{
+            border: 0.5px solid #482A80;
+            width: 300px;
+            height: 20px;
+            margin-bottom: 5px;
+            font-family: 'Raleway';
+            color: #482A80;
+            font-size: 10px;
+            padding-left: 5px;
+
+        }
+        .div4 #message{
+            padding-bottom: 50px;
+        }
+        .div4 #sub{
+            float: right;
+            width: 20px;
+            height: 25px;
+            padding-right: 50px;
+            margin-right: 6px;
+            background-color: #48267C;
+            color: white;
+            padding-left: 15px;
+            font-family: Libre Baskerville;
+            font-style: italic;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div>
+            <i id="migibell">Migi Bell</i>
+		    <a class="rightborder" href="contact" style="margin-right: 100px;">CONTACT ME</a>
+		    <a href="about">ABOUT ME</a>
+		    <a href="portfolio">PORTFOLIO</a>
+		    <a href="home" style="color:#48267C">HOME</a>
+        </div>
+	</nav>
+<div class="parallax">
+    <div class="parallax__layer parallax__layer--back" id="bg1"></div>
+	<div class="div1 parallax__layer parallax__layer--base">
+		<div class="intro">
+			<img src="http://csci571.com/hw/hw3/images/face.jpg">
+            <div>
+			    <i>Migi Bell</i>
+                <br>
+			    <font id="food">FOOD</font>
+                <br>
+			    <b>STYLIST.</b>
+                <hr>
+                <a>PORTFOLIO></a>
+            </div>
+		</div>
+		<!--<img src="coffee1.jpg">-->
+	</div>
+
+    <div class="parallax__layer parallax__layer--back" id="bg2"></div>
+    <div class="div2 parallax__layer parallax__layer--base">
+        <div class="column" id="projects">
+            <font style="font-size: 10px; font-family: arial;">PROJECTS</font>
+            <br>
+            <b>PROJECTS ></b>
+        </div>
+        <div class="column" id="editorial">
+            <font style="font-size: 10px; font-family: arial;">PROJECTS</font>
+            <br>
+            <b>EDITORIAL ></b>
+        </div>
+        <div class="column" id="innovative">
+            <font style="font-size: 10px; font-family: arial;">PROJECTS</font>
+            <br>
+            <b>INNOVATIVE ></b>
+        </div>
+    </div>
+
+    
+    <div class="div3 parallax__layer parallax__layer--base">
+        <h6>- Hello -</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur
+           <br>
+           adipiscing elit, sed do eiusmod tempor
+           <br>
+           incididunt ut labore et dolore magna aliqua.
+        </p>
+    </div>
+
+    <div class="div4 parallax__layer parallax__layer--base">
+        <h6>- Get In Touch -</h6>
+        <div class="contactinfo">
+            <font id="contme">Contact Me</font>
+            <p>700 Morey Francois Street, San Francisco, CA 94148</p>
+            <p>info@lorem.com | Tel: 123-555-1212</p>
+            <br>
+            <br>
+            <br>
+            <p>© 2023 by Migi Bell.</p>
+        </div>
+
+        <div class="textbox">
+           <input type="text" value="Name" >
+           <input type="text" value="Email">
+           <input type="text" value="Phone">
+           <input type="text" id="message" value="Type your message here...">
+           <input type="submit" value="Submit" id="sub">
+        </div>
+    </div>
+</div>
+	<!--Slide Show 
+	<section>
+		<img class="mySlides" src="coffee2.jpg" style="width:100%">
+		<img class="mySlides" src="coffee1.jpg" style="width:100%">
+	</section>-->
+</body>
+</html>

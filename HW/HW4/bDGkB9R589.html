@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 4</title>
+    <style>
+        body{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 10%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+
+        //Get data from JSON files
+        function loadJSON(url) {
+            var xmlhttp = new XMLHttpRequest();
+            /*xmlhttp.onerror = function () {
+            alert("Network error!");
+            }*/
+            try {
+            xmlhttp.open("GET", url, false);
+            xmlhttp.send();
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                json = JSON.parse(xmlhttp.responseText);
+            }
+            else {
+                json = null;
+            }
+            } catch (error) {
+            json = null;
+            }
+            return json;
+            /*if (xmlhttp.status == 404) {
+                alert("Cannot Find the Proper JSON File! Please Check Again!");
+                return null;
+            }
+            xmlhttp.open("GET", url, false); //open, send, responseText are xmlhttp.send(); //properties of XMLHTTPRequest
+            xmlhttp.send();
+            if (xmlhttp.status == 200 && xmlhttp.readyState == 4)
+                jsonDoc = JSON.parse(xmlhttp.responseText);
+            else jsonDoc = null;
+            return jsonDoc;*/
+        }
+
+        function generateHubs(hubs){
+            var hub = hubs["Hub"];
+            if (hub.length == 0) {
+                return "<td></td>";
+            }
+            var hubsText = "<td><ul>";
+            var bold = true;
+            for (var description of hub) {
+                if (description == "") continue;
+                if (bold) {
+                    hubsText += "<li><b>";
+                    hubsText += description;
+                    hubsText += "</b></li>";
+                    bold = false;
+                }
+                else {
+                    hubsText += "<li>";
+                    hubsText += description;
+                    hubsText += "</li>";
+                }
+            }
+            hubsText += "</ul></td>";
+            return hubsText;
+
+        }
+
+        //Create rows for the new html file
+        function generateARow(row_el){
+            html_text = "<tr>";
+            for (property in row_el) {
+                switch (property) {
+                    case "Rank": html_text += "<td>" + row_el[property] + "</td>"; break;
+                    case "Group": html_text += "<td>" + row_el[property] + "</td>"; break;
+                    case "Hubs": html_text += generateHubs(row_el[property]); break;
+                    case "Vehicles": html_text += "<td>" + row_el[property] + "</td>"; break;
+                    case "HomePage": html_text += "<td><a href='" + row_el[property] + "'>" +row_el[property] + "</a></td>"; break;
+                    case "Logo": html_text += "<td><img src='" + row_el[property] + "'style='width: 200px'></td>"; break;
+                }
+            }
+            html_text += "</tr>";
+            return html_text;
+        }
+
+        //Create new html file with car tables
+        function generateHTML(jsonDoc){
+            html_text = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Largest Manufacturers by Production (2017)</title></head><body>";
+            html_text += "<table border = 1>";
+
+            //html: header
+            html_text += "<tr>";
+            for (var header_el of jsonDoc.Mainline.Table.Header.Data){
+                html_text += "<th>" + header_el + "</th>";
+                if (header_el!="Rank" && header_el!="Group" && header_el!="Country" && header_el!="Vehicles" && header_el!="Wiki Page" && header_el!="Logo"){
+                    alert("Invalid Header Data Tag in JSON!");
+                    return null;
+                }
+            }
+            html_text += "</tr>";
+
+            //html: body
+            for (var row_el of jsonDoc.Mainline.Table.Row){
+                html_text += generateARow(row_el);//create rows for each brand
+            }
+            html_text += "</table>";
+            html_text += "</bo";
+            html_text += "dy>";
+            html_text += "</html>";
+            return html_text;
+        }
+
+        //Complete onclick action
+        function viewJSON(what) {
+            var URL = what.URL.value;
+            if (URL == '') {
+                alert("Please Input a JSON File!");// input text is empty
+                return;
+            }
+            var jsonDoc = loadJSON(URL);
+            if (jsonDoc == null){
+                alert("Cannot Find the Proper JSON File! Please Check Again!");
+                return;
+            }
+            if (!jsonDoc.Mainline.Table.hasOwnProperty("Row")){
+                alert("No Car Company Found! Please Check Again!");
+                return;
+            }
+            html_text = generateHTML(jsonDoc);
+            if (html_text != null){
+                hWin = window.open("", "Largest Manufacturers by Production (2017)", "height=auto, width=auto");
+                hWin.document.write(html_text);
+                hWin.document.close();
+            }
+        }
+        // ....... processing the document goes here
+    </script>
+</head>
+
+<body>
+<h4>Enter URL for largest manufacturers by production (2017) List JSON File </h4>
+<form name="myform" method="POST" id="location">
+    <input type="text" name="URL" maxlength="100" size="20"/>
+    <br />
+    <br>
+    <input type="button" name="submit" value="Submit Query" onClick="viewJSON(this.form)" />
+</form>
+</body>
+
+</html>

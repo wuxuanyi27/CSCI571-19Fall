@@ -1,0 +1,21 @@
+<!--<p>hourly-tab works!</p>-->
+<div>
+    <div class="col-sm-4">
+        <select class="custom-select" name="cate" id="cate" [(ngModel)] = "hour.cate" #cate = "ngModel" #catesllct (change)="changecate(catesllct.value)">
+            <option *ngFor = "let cate of cates" [value] = "cate.key">{{cate.value}}</option>
+        </select>
+    </div>
+</div>
+<div>
+    <div>
+        <div style="display: block">
+            <canvas baseChart 
+            [datasets]="barChartData" 
+            [labels]="barChartLabels" 
+            [options]="barChartOptions"
+            [legend]="barChartLegend" 
+            [chartType]="barChartType">
+            </canvas>
+        </div>
+    </div>
+</div>

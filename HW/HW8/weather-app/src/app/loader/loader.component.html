@@ -1,0 +1,14 @@
+<!-- loader.component.html -->
+<div class="progress-loader">
+  <div class = "progress" *ngIf="load==1">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <div class = "progress progress-bar-striped progress-bar-animated" *ngIf="load==2">
+      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  <!--<div class="progress" *ngIf="show">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+        [attr.aria-valuenow]="loaderService.progress$|async" aria-valuemin="0" aria-valuemax="100"
+        [style.width]="(loaderService.progress$|async) + '%'"></div>
+    </div>-->
+</div>

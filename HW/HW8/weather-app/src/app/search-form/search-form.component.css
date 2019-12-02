@@ -1,0 +1,46 @@
+#box {
+	text-align: left;
+	margin-top: 20px;
+	background-color: #6F91AA;
+	color: white;
+	position: relative;
+	border: 2px solid black;
+	border-radius: 4px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+#text_title {
+	text-align: center;
+	margin-top: 50px;
+	padding-bottom: 10px;
+}
+
+.input_form {
+	text-align: left;
+}
+
+.star {
+	color: red;
+}
+
+#search_clear{
+	margin-bottom: 40px;
+}
+
+#search_clear button{
+	border: 1px solid black;
+	color: grey;
+	background-color: white;
+}
+
+#state{
+	border: none;
+}
+
+.button_text{
+	vertical-align: middle;
+}
+
+.material-icons{
+	vertical-align: middle;
+}

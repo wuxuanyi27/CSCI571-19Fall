@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".details.Today">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="50dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="15dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="395dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/WS_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline9"
+            app:layout_constraintTop_toTopOf="@+id/guideline8">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/WS_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/wind"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="TODO" />
+
+                <TextView
+                    android:id="@+id/WS_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/WSText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/WS_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/WS_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/WS_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/WS_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/WS_img" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/Prs_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/Prcp_card"
+            app:layout_constraintStart_toEndOf="@+id/WS_card"
+            app:layout_constraintTop_toTopOf="@+id/guideline8">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/Prs_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/pressure"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Prs_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/PrsText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Prs_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/Prs_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/Prs_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/Prs_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.555"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Prs_img" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/Prcp_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toTopOf="@+id/guideline8">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/Prcp_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/rain"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Prcp_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/PrcpText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Prcp_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/Prcp_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/Prcp_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/Prcp_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Prcp_img"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="225dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/T_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline9"
+            app:layout_constraintTop_toTopOf="@+id/guideline11">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/T_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/temperature"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/T_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/TText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/T_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/T_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/T_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/T_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/T_img"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/S_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/H_card"
+            app:layout_constraintStart_toEndOf="@+id/T_card"
+            app:layout_constraintTop_toTopOf="@+id/guideline11">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/Smmry_img"
+                    android:layout_width="90dp"
+                    android:layout_height="98dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/weather_clearday"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Smmry_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Smmry_img"
+                    app:layout_constraintVertical_bias="0.611" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/H_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toTopOf="@+id/guideline11">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/H_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/humidity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/H_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/HText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/H_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/H_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/H_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/H_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/H_img"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="400dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/V_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline9"
+            app:layout_constraintTop_toTopOf="@+id/guideline12">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/V_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/visibility"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/V_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/VText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/V_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/V_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/V_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/V_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/V_img"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/CC_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/H_card"
+            app:layout_constraintStart_toEndOf="@+id/T_card"
+            app:layout_constraintTop_toTopOf="@+id/guideline12">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/CC_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/cloud_cover"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/CC_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/CCText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CC_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/CC_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/CC_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/CC_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CC_img"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/O_card"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toTopOf="@+id/guideline12">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/O_img"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ozone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/O_text"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:text="@string/OText"
+                    android:textAlignment="center"
+                    android:textColor="#9C9C9C"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/O_img"
+                    app:layout_constraintVertical_bias="0.865" />
+
+                <TextView
+                    android:id="@+id/O_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="@string/O_value"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorLight"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/O_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/O_img"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>

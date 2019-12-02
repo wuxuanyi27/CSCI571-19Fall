@@ -1,0 +1,22 @@
+<!--<p>result-container works!</p>-->
+<div class="container">
+    <div id="result-and-favorite">
+        <div>
+            <button type="button" [class]="resultShowClass" (click)="showResult()">Results</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" [class]="favoriteShowClass" (click)="showFavorite()">Favorites</button>
+        </div>
+    </div>
+    <app-loader></app-loader>
+    <div *ngIf="show">
+        <div>
+            <div>
+                <app-result-table [class.hide] = "!isShowResult"></app-result-table>
+                <app-favorite [class.hide] = "!isShowFavorite"></app-favorite>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<app-result-table></app-result-table>
+<app-favorite></app-favorite>-->

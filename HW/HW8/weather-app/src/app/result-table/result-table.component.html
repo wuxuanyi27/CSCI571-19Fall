@@ -1,0 +1,37 @@
+<!--<p>result-table works!</p>-->
+<div id = "result-table" class = "container" *ngIf="showResult && load == 0">
+    <div id="results-div" *ngIf = "error" class="table-responsive">
+        <div class="alert alert-warning" role="alert">
+          Invalid Address
+        </div>
+    </div>
+    <div class = "container" *ngIf="showResult && !error">
+    <nav>
+    <div class="nav nav-tabs" id="nav-tabs" role="tablist">
+      <a href="#" *ngFor="let tab of tabs" [id]="tab.id" class="nav-item nav-link" [class.active]="tab.id===activeID" role="tab"
+        data-toggle="tab" [attr.aria-controls]="tab.id+'-panel'" (click)="setActive(tab.id)">{{tab.title}}</a>
+        <div class="ml-auto">
+            <button class="btn tweet" (click)="tweet()">
+                <img id="tweet" src="https://img.icons8.com/color/48/000000/twitter.png" alt="tweet" height="30px">
+              </button>
+            <button class="btn btn-outline" (click)="setFavorite()">
+              <i class = "material-icons" *ngIf="!isFavorited">star_border</i>
+              <i class = "material-icons" style="color:#F8D656;" *ngIf="isFavorited">star</i>
+            </button>
+        </div>
+    </div>
+    </nav>
+    <br>
+    <div class="tab-content" id="nav-tab-content">
+        <div class="tab-pane active" *ngIf="activeID==='current-tab'" role="tabpanel" id="current-tab-panel" aria-labelledby="current-tab">
+          <app-current-tab [crrnt]="crrntInfo"></app-current-tab>
+        </div>
+        <div class="tab-pane active" *ngIf="activeID==='hourly-tab'" role="tabpanel" id="hourly-tab-panel" aria-labelledby="hourly-tab">
+          <app-hourly-tab ></app-hourly-tab>
+        </div>
+        <div class="tab-pane active" *ngIf="activeID==='weekly-tab'" role="tabpanel" id="weekly-tab-panel" aria-labelledby="weekly-tab">
+          <app-weekly-tab></app-weekly-tab>
+        </div>
+    </div>
+  </div>
+</div>

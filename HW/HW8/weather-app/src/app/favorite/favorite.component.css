@@ -1,0 +1,44 @@
+.category-icon {
+    width: 40px;
+    height: 40px;
+}
+button{
+    color: orange;
+}
+.table-striped tbody tr:nth-of-type(2n+1){
+    background-color: #A6CFEE;
+   }
+   
+   .table-striped tbody tr:nth-of-type(2n){
+    background-color: #6F90AA;
+   }
+
+.table-striped thead tr{
+    background-color: #6F90AA;
+}
+.table {
+    text-align: center;
+    padding: 0.75rem;
+}
+
+a {
+    text-decoration: none;
+}
+@media (max-width: 768px){
+   table {
+       font-size: 12px;
+       padding: 0.5rem;
+   }
+   .category-icon {
+    width: 30px;
+    height: 30px;
+    }
+    .btn {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+    }
+    .material-icons{
+        font-size: 14px;
+    }
+}

@@ -24,7 +24,7 @@
 
 
 	function getPosition($strt, $cty, $stt){
-		$geo_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".urlencode($strt).",".urlencode($cty).",".urlencode($stt)."&key=AIzaSyBNIu2LByGg7ljnoGcPAny3WvIgeIWvk1s";
+		$geo_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".urlencode($strt).",".urlencode($cty).",".urlencode($stt)."&key=your_google_api";
 		$xmlDoc = new DOMDocument();
 		$xml = file_get_contents($geo_url);
 		$xmlDoc = simplexml_load_string($xml);
@@ -34,13 +34,13 @@
 	}
 
 	function getWeatherInfo($lat, $lon){
-		$wea_url = "https://api.darksky.net/forecast/4804abf7aa160f3de8fdcb629decde1d/".urlencode($lat).",".urlencode($lon);
+		$wea_url = "https://api.darksky.net/forecast/your_darkskey_api/".urlencode($lat).",".urlencode($lon);
 		$json = json_decode(file_get_contents($wea_url));
 		return $json;
 	}
 
 	function getWeatherDetail($lat, $lon, $time){
-		$dtl_url = "https://api.darksky.net/forecast/4804abf7aa160f3de8fdcb629decde1d/".urlencode($lat).",".urlencode($lon).",".urlencode($time)."?exclude=minutely";
+		$dtl_url = "https://api.darksky.net/forecast/your_darkskey_api/".urlencode($lat).",".urlencode($lon).",".urlencode($time)."?exclude=minutely";
 		$json = json_decode(file_get_contents($dtl_url));
 		return $json;
 	}
